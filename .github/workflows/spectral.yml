@@ -1,0 +1,22 @@
+name: Speccy
+
+on:
+  push:
+    branches:
+      - main  # Change this to the name of your main branch
+  pull_request:
+    branches:
+      - main  # Change this to the name of your main branch
+
+jobs:
+  speccy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install and run Speccy
+      run: |
+        npm install -g speccy
+        speccy lint test-sample.json
