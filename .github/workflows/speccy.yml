@@ -1,21 +1,22 @@
-name: OpenAPI Lint
+name: Speccy
 
 on:
+  push:
+    branches:
+      - main  # Change this to the name of your main branch
   pull_request:
     branches:
-      - main  # Adjust this to the branch name you want to trigger the workflow on
+      - main  # Change this to the name of your main branch
 
 jobs:
-  lint:
+  speccy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install speccy
-      run: npm install @stoplight/speccy
-
-    - name: Lint OpenAPI specs
-      run: npx speccy lint test-sample.json
-
+    - name: Install and run Speccy
+      run: |
+        npm install -g speccy
+        speccy lint -v 2 test-sample.json
