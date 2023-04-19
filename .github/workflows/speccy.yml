@@ -19,4 +19,4 @@ jobs:
     - name: Install and run Speccy
       run: |
         npm install -g speccy
-        speccy lint -v 2 test-sample.json
+        speccy lint test-sample.json
