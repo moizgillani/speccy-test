@@ -1,4 +1,4 @@
-name: Speccy
+name: openapi-validator
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install and run Speccy
-      run: |
-        npm install -g speccy
-        speccy lint test-sample.json
+    - name: 'validate openapi schema'
+      uses: thiyagu06/openapi-validator-action@v1
+      with:
+        filepath: 'test-sample.json'

@@ -1,2 +1,1 @@
-# spectral-test-PullRequest
-# speccy-test
+# Speccy-test-PullRequest
